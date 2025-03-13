@@ -1,0 +1,28 @@
+name: Build Wii U Homebrew
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: devkitpro/devkitppc:latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Wii U Homebrew
+        run: make
+
+      - name: Upload Compiled App
+        uses: actions/upload-artifact@v3
+        with:
+          name: wiiu-homebrew
+          path: screen_stream.rpx
+          
