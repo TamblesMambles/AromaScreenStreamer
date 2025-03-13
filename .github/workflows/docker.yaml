@@ -15,14 +15,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Build Wii U Homebrew
         run: make
 
       - name: Upload Compiled App
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: wiiu-homebrew
           path: screen_stream.rpx
-          
