@@ -1,5 +1,8 @@
 FROM devkitpro/devkitppc:latest
 
+# Install WUT (Wii U Toolchain)
+RUN yes | dkp-pacman -S wut
+
 # Set working directory
 WORKDIR /app
 
